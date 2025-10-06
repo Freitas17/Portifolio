@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+    <section id="contato" class="content-section">
+    <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-subtitle">Estou disponível para novas oportunidades e projetos. Vamos conversar!</p>
+
+        <div class="contact-social-links">
+            <a href="https://github.com/Freitas17" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="www.linkedin.com/in/freitas17" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/o.andreh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/xjkaopvy" method="POST" class="contact-form" style="max-width: 700px; margin: 2rem auto;">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Seu melhor email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Assunto</label>
+                <input type="text" id="subject" name="subject" placeholder="Ex: Proposta de Emprego" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="6" placeholder="Deixe sua mensagem aqui..." required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+        <p id="form-status" style="text-align: center; margin-top: 1rem;"></p>
+    </div>
+</section>
+{% endblock %}

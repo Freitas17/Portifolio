@@ -1,0 +1,605 @@
+:root {
+    --primary-color: #9D00FF; /* Roxo vibrante principal */
+    --background-color: #1a0f2e; /* Roxo bem escuro/quase preto */
+    --text-color: #e0d8ff; /* Lavanda pálido para texto */
+    --card-background: rgba(26, 15, 46, 0.85); /* Fundo dos cards */
+    --glow-color: rgba(157, 0, 255, 0.5); /* Brilho roxo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Efeito Glassmorphism --- */
+.glass-nav, .glass-card {
+    background: rgba(36, 24, 60, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(157, 0, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* --- Header & Navegação --- */
+.glass-nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;          
+    align-items: center;    
+    gap: 0.75rem;
+    
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+.logo img {
+    height: 45px; /* Você pode ajustar esta altura */
+    width: auto;
+    border-radius: 50%; /* <-- Adiciona bordas arredondadas (faz um círculo/squircle) */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--glow-color);
+}
+
+/* Estilo do Link Ativo no Header */
+.nav-links a.active {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+/* --- Seção Hero --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.hero-text .subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.hero-text .highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+main {
+    padding-top: 80px; /* <-- Ajuste este valor se a altura do seu header for diferente */
+}
+
+.content-section {
+    padding: 4rem 0; /* <-- Reduzimos o padding vertical de 6rem para 4rem */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* --- Sobre Mim --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+/* --- Estilos Gerais dos Cards (Projetos e Skills) --- */
+.projects-grid, .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    text-align: center;
+}
+
+.project-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--glow-color);
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card-footer {
+    margin-top: 1.5rem;
+}
+
+.project-link {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 500;
+}
+
+.project-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* --- Seção de Tecnologias/Skills --- */
+.skill-card {
+    padding: 2rem 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.skill-card > i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px var(--glow-color);
+    line-height: 60px;
+    transition: all 0.3s ease-in-out;
+}
+
+.skill-card .icon-pair {
+    height: 60px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.skill-card .icon-pair i {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--glow-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.skill-card:hover i {
+    text-shadow: 0 0 25px var(--glow-color);
+    transform: scale(1.1);
+}
+
+.skill-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* --- Seção de Projetos em Destaque (Botão "Ver Todos") --- */
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* --- Seção Final de Call to Action (CTA) --- */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+                radial-gradient(circle at 50% 50%, var(--card-background), var(--background-color));
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    border-top: 2px solid var(--primary-color);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+.cta-section h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- Contato e Social --- */
+#contato {
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-icon {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--glow-color);
+    transform: scale(1.2);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    color: #8892b0;
+}
+
+/* ================================================== */
+/* ====== MELHORIAS NA SEÇÃO DE PROJETOS ====== */
+/* ================================================== */
+
+/* --- Estilos para o Card de Projeto Atualizado --- */
+.project-card {
+    padding: 0; /* Remove padding antigo para a imagem encostar na borda */
+    display: flex;
+    flex-direction: column;
+    background: var(--card-background); /* Fundo um pouco mais sólido */
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz esta área crescer para ocupar o espaço */
+}
+
+.project-description {
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Empurra o footer para baixo */
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    background-color: rgba(157, 0, 255, 0.2);
+    color: var(--primary-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.small-button {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 0;
+}
+
+
+/* --- Estilos da Janela Modal --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    display: none; /* Começa oculto */
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideIn 0.4s ease-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+.modal-project-image {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+#modal-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Estilo para o botão "Ver Sistema" (estilo VAZADO/OUTLINE) */
+.modal-content .btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    
+    /* --- REGRAS PARA O ESTILO VAZADO --- */
+    background-color: transparent;          /* 1. Fundo fica transparente */
+    border: 2px solid var(--primary-purple); /* 2. Adiciona uma borda roxa */
+    color: var(--primary-purple);           /* 3. O texto fica roxo */
+    
+    padding: 10px 25px;                   /* Ajuste no padding por causa da borda */
+    border-radius: 5px;                   /* Garante as bordas arredondadas */
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;            /* Transição suave para cores e fundo */
+}
+
+/* Efeito hover para o botão (inverte as cores) */
+.modal-content .btn:hover {
+    background-color: var(--primary-purple); /* Fundo fica roxo */
+    color: var(--primary-color);/* Texto fica roxo */
+}
+
+/* Estilo para o ícone dentro do botão */
+.modal-content .btn i {
+    margin-left: 8px;
+}
+
+/*
+================================================================
+--- CORREÇÃO ESPECÍFICA PARA O FORMULÁRIO DE CONTATO DO PORTFÓLIO ---
+================================================================
+*/
+
+/* Garante que o container do formulário se comporte corretamente */
+#contact-form {
+    max-width: 700px;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+/* Organiza cada grupo de label + input */
+#contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Estiliza os textos (Nome, Email, etc.) */
+#contact-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color); /* Usa a cor de texto do seu tema */
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Estiliza as caixas de texto e a área de mensagem */
+#contact-form .form-group input,
+#contact-form .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--primary-color); /* Usa a cor primária do seu tema */
+    border-radius: 5px;
+    color: var(--text-color); /* Usa a cor de texto do seu tema */
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Estiliza o texto de exemplo (placeholder) */
+#contact-form .form-group input::placeholder,
+#contact-form .form-group textarea::placeholder {
+    color: #8892b0; /* Um cinza azulado que combina com o tema */
+}
+
+/* Estiliza o botão de Enviar */
+#contact-form button[type="submit"] {
+    width: 100%;
+    padding: 12px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 2px solid var(--primary-color); /* Usa a cor primária do seu tema */
+    color: var(--primary-color);        /* Usa a cor primária do seu tema */
+    border-radius: 5px; /* Adicionado para consistência */
+}
+
+#contact-form button[type="submit"]:hover {
+    background-color: var(--primary-color); /* Usa a cor primária do seu tema */
+    color: #fff;
+}
+
+/* --- Estilos para os Ícones Sociais na Seção de Contato --- */
+.contact-social-links {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem; /* Ajuste para espaçamento consistente */
+}
+
+.contact-social-links a {
+    font-size: 2.5rem; /* Aumentado um pouco para se destacarem */
+    color: var(--text-color); /* Agora usa a cor de texto padrão */
+    margin: 0 0.8rem;
+    transition: color 0.3s ease, text-shadow 0.3s, transform 0.3s;
+    text-decoration: none; /* Garante que não haja sublinhado */
+}
+
+.contact-social-links a:hover {
+    color: var(--primary-color); /* Usa o roxo principal no hover */
+    text-shadow: 0 0 15px var(--glow-color); /* Adiciona o brilho no hover */
+    transform: scale(1.1); /* Um pequeno efeito de escala para interatividade */
+}
+
+/* Garante que, se o tema for escuro (seu caso), a cor inicial seja clara */
+/* Isso já deve estar coberto pelo var(--text-color), mas é uma garantia */
+.dark-mode .contact-social-links a {
+    color: var(--text-color); 
+}
+
+/* Animações do Modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

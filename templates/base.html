@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %} | André de Freitas Ribeiro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/Iconandre.png')}}" type="image/x-icon">
+  </head>
+  <body>
+    <canvas id="matrix-background"></canvas>
+
+    <header class="glass-nav">
+      <nav class="container">
+        <a href="{{ url_for('main_routes.index') }}" class="logo">
+        <img src="{{ url_for('static', filename='img/Iconandre.png') }}" alt="Logo André de Freitas Ribeiro">
+        <span>André de Freitas Ribeiro</span></a>
+          <li>
+            <a
+              href="{{ url_for('main_routes.index') }}"
+              class="{{ 'active' if 'index' in request.endpoint else '' }}"
+              >Sobre</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('main_routes.projetos') }}"
+              class="{{ 'active' if 'projetos' in request.endpoint else '' }}"
+              >Projetos</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('main_routes.contato') }}"
+              class="{{ 'active' if 'contato' in request.endpoint else '' }}"
+              >Contato</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">{% block content %}{% endblock %}</main>
+
+    <footer>
+      <p>&copy; 2025 André de Freitas Ribeiro. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+  </body>
+</html>

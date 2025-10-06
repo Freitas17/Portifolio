@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Meus Projetos{% endblock %}
+
+{% block content %}
+    <section id="projetos" class="content-section" style="padding-top: 120px;">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card glass-card"
+                     data-title="Instituto Sonhe"
+                     data-image="/static/img/Instituto-sonhe.png"
+                     data-link="https://freitas17.github.io/Instituto-Sonhe/"
+                     data-details="Desenvolvimento de um site moderno, completo e responsivo para a ONG Instituto Sonhe, com foco em criar uma presença digital profissional e uma plataforma de doações mais eficaz e persuasiva, utilizando HTML5, CSS3 e JavaScript.">
+                    
+                    <img src="/static/img/Instituto-sonhe.png" alt="Imagem do Projeto Instituto Sonhe" class="project-image">
+                    <div class="project-content">
+                        <h3>Instituto Sonhe</h3>
+                        <p class="project-description">Website institucional para uma ONG, focado em uma interface amigável e design responsivo.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/Freitas17/Instituto-Sonhe.git" target="_blank" class="project-link">GitHub</a>
+                            <button class="cta-button small-button">
+                                Saiba Mais
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card"
+                     data-title="OrganizadorPy"
+                     data-image="/static/img/organizadorpy.png"
+                     data-link="https://github.com/Freitas17/OrganizadorPy.git"
+                     data-details="Este projeto é um sistema que permite aos usuários organizar suas pastas e arquivos de forma eficiente. Desenvolvido em Python com Tkinter, o aplicativo oferece uma interface gráfica simples e intuitiva, permitindo que os usuários criem, movam e excluam pastas e arquivos facilmente.">
+
+                    <img src="/static/img/organizadorpy.png" alt="Imagem do Projeto OrganizadorPy" class="project-image">
+                    <div class="project-content">
+                        <h3>OrganizadorPy</h3>
+                        <p class="project-description">Sistema para organizar pastas</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/Freitas17/OrganizadorPy.git" target="_blank" class="project-link">GitHub</a>
+                            <button class="cta-button small-button">
+                                Saiba Mais
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+    </section>
+
+    <div id="project-modal" class="modal-backdrop">
+        <div class="modal-content glass-card">
+            <button id="modal-close-button" class="modal-close">&times;</button>
+            <img id="modal-image" src="" alt="Imagem do projeto" class="modal-project-image">
+            <h2 id="modal-title"></h2>
+            <p id="modal-details"></p>
+            <a id="modal-project-link" href="#" target="_blank" rel="noopener noreferrer" class="btn">
+            Ver Sistema <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+{% endblock %}

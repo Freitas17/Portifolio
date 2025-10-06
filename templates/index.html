@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Olá, eu sou André de Freitas Ribeiro</h1>
+            <p class="subtitle">Desenvolvedor <span class="highlight">Full-Stack</span> & <span class="highlight">Analista de Sistemas</span></p>
+            <p>Transformando ideias em código e soluções digitais inovadoras.</p>
+            <a href="{{ url_for('main_routes.projetos') }}" class="cta-button">Ver Meus Projetos</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="content-section">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-content">
+            <img src="/static/img/Img Andre.jpg" alt="Foto do autor da pagina" class="profile-pic">
+            <p>
+                Sou um desenvolvedor apaixonado por tecnologia e por criar experiências de usuário fluidas e impactantes. Com experiência em Java, C#, Flask e MongoDB, busco sempre me manter atualizado com as tendências do mercado para entregar produtos de alta qualidade.
+            </p>
+        </div>
+    </section>
+
+    <section id="tecnologias" class="content-section">
+    <h2 class="section-title">Minhas Principais Tecnologias</h2>
+    <div class="skills-grid">
+
+        <div class="skill-card glass-card">
+            <div class="icon-pair">
+                <i class="fab fa-python"></i>
+                <img src="https://img.icons8.com/?size=100&id=MHcMYTljfKOr&format=png&color=9d00ff" alt="Logo Flask">
+            </div>
+            <h3>Python & Flask</h3>
+        </div>
+        
+        <div class="skill-card glass-card">
+            <i class="fas fa-database"></i>
+            <h3>MongoDB</h3>
+        </div>
+
+        <div class="skill-card glass-card">
+            <i class="fab fa-html5"></i>
+            <h3>HTML5</h3>
+        </div>
+        
+        <div class="skill-card glass-card">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS3</h3>
+        </div>
+
+        <div class="skill-card glass-card">
+            <i class="fab fa-js-square"></i>
+            <h3>JavaScript</h3>
+        </div>
+
+        <div class="skill-card glass-card">
+            <i class="fa-brands fa-java"></i>
+            <h3>Java</h3>
+        </div>
+
+        <div class="skill-card glass-card">
+            <i class="fa-brands fa-angular"></i>    
+            <h3>Angular</h3>
+        </div>
+
+        <div class="skill-card glass-card">
+            <i class="fa-brands fa-php"></i>
+            <h3>PHP</h3>
+        </div>
+
+        <div class="skill-card glass-card">
+            <i class="fa-brands fa-git-alt"></i>
+            <h3>Git</h3>
+        </div>
+        
+        <div class="skill-card glass-card">
+            <i class="fa-brands fa-github"></i>
+            <h3>GitHub</h3>
+        </div>
+
+    </div>
+</section>
+
+    <section id="destaques" class="content-section">
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <div class="projects-grid">
+            <div class="project-card glass-card">
+                <div class="project-content">
+                    <h3>Biodente</h3>
+                    <p>O BioDente é um sistema para consultórios odontológicos que automatiza processos clínicos, administrativos e financeiros. Centraliza pacientes, agenda, prontuários, estoque e finanças, integrando pagamentos e comunicação. Garante eficiência, melhora o atendimento e apoia o crescimento sustentável.</p>
+                    <div class="card-footer">
+                        <a href="https://github.com/Freitas17/Biodente.git" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://freitas17.github.io/Biodente/" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card glass-card">
+                <div class="project-content">
+                    <h3>MestreCuca AI</h3>
+                    <p>Aplicação web com um chatbot gerador de receitas, com integração de automação via n8n.</p>
+                    <div class="card-footer">
+                        <a href="https://github.com/Freitas17/mestrecuca-ai-receitas.git" class="project-link"><i class="fab fa-github"></i> Ver no GitHub</a>
+                        <a href="https://mestrecuca-ai-receitas.lovable.app" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-cta">
+            <a href="{{ url_for('main_routes.projetos') }}" class="cta-button">Ver todos os projetos</a>
+        </div>
+    </section>
+
+    <section id="final-cta" class="content-section cta-section">
+        <h2>Vamos Trabalhar Juntos?</h2>
+        <p>Tenho interesse em oportunidades de freelance e projetos desafiadores. Se você tem uma ideia, vamos conversar.</p>
+        <a href="{{ url_for('main_routes.contato') }}" class="cta-button">Entre em Contato</a>
+    </section>
+    
+{% endblock %}
