@@ -27,31 +27,18 @@
 
     <header class="glass-nav">
       <nav class="container">
-        <a href="{{ url_for('main_routes.index') }}" class="logo">
-        <img src="{{ url_for('static', filename='img/Iconandre.png') }}" alt="Logo André de Freitas Ribeiro">
-        <span>André de Freitas Ribeiro</span></a>
-          <li>
-            <a
-              href="{{ url_for('main_routes.index') }}"
-              class="{{ 'active' if 'index' in request.endpoint else '' }}"
-              >Sobre</a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('main_routes.projetos') }}"
-              class="{{ 'active' if 'projetos' in request.endpoint else '' }}"
-              >Projetos</a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('main_routes.contato') }}"
-              class="{{ 'active' if 'contato' in request.endpoint else '' }}"
-              >Contato</a
-            >
-          </li>
-        </ul>
+    <a href="{{ url_for('index') }}" class="logo">André de Freitas Ribeiro</a>
+      <ul class="nav-links">
+        <li>
+            <a href="{{ url_for('index') }}" class="{{ 'active' if 'index' in request.endpoint else '' }}">Sobre</a>
+        </li>
+        <li>
+            <a href="{{ url_for('projetos') }}" class="{{ 'active' if 'projetos' in request.endpoint else '' }}">Projetos</a>
+        </li>
+        <li>
+            <a href="{{ url_for('contato') }}" class="{{ 'active' if 'contato' in request.endpoint else '' }}">Contato</a>
+        </li>
+      </ul>
       </nav>
     </header>
 
